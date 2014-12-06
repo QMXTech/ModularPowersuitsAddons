@@ -24,7 +24,7 @@ import java.util.List;
  * Created by User: Korynkai
  * 5:41 PM 2014-11-19
  */
- 
+
 public class PersonalShrinkingModule extends PowerModuleBase implements IRightClickModule, IPlayerTickModule {
 public static final String MODULE_CM_PSD = "Personal Shrinking Device";
 private ItemStack cpmPSD;
@@ -58,7 +58,7 @@ public String getLocalizedName() {
 
 @Override
 public String getDescription() {
-        return "A Thermal Expansion multimeter integrated in your power tool.";
+        return "A Compact Machines Personal Shrinking Device integrated into your power tool.";
 }
 
 @Override

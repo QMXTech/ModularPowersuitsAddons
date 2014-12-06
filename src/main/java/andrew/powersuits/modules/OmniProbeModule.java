@@ -98,7 +98,7 @@ public String getLocalizedName() {
 
 @Override
 public String getDescription() {
-        return "A prototype multi-use probe integrated in your power tool.";
+        return "A prototype multi-use probe integrated into your power tool.";
 }
 
 @Override
