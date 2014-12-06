@@ -3,7 +3,6 @@ package andrew.powersuits.common;
 
 import andrew.powersuits.client.ClientProxy;
 import andrew.powersuits.modules.TerminalHandler;
-import andrew.powersuits.modules.FluidTerminalHandler;
 import andrew.powersuits.network.MPSAPacketHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -26,22 +25,22 @@ import java.io.File;
 
 
 public class ModularPowersuitsAddons {
-    @SidedProxy(clientSide = "andrew.powersuits.client.ClientProxy", serverSide = "andrew.powersuits.common.CommonProxy")
-    public static CommonProxy proxy;
+@SidedProxy(clientSide = "andrew.powersuits.client.ClientProxy", serverSide = "andrew.powersuits.common.CommonProxy")
+public static CommonProxy proxy;
 
-    @Instance("PowersuitAddons")
-    public static ModularPowersuitsAddons INSTANCE;
+@Instance("PowersuitAddons")
+public static ModularPowersuitsAddons INSTANCE;
 
-    public final static String modid = "powersuitaddons";
-    public static final String CHANNEL = "psa";
-    public static FMLEventChannel packetHandler;
-
-
-    public static GuiHandler guiHandler = new GuiHandler();
+public final static String modid = "powersuitaddons";
+public static final String CHANNEL = "psa";
+public static FMLEventChannel packetHandler;
 
 
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+public static GuiHandler guiHandler = new GuiHandler();
+
+
+@EventHandler
+public void preInit(FMLPreInitializationEvent event) {
         packetHandler = NetworkRegistry.INSTANCE.newEventDrivenChannel(CHANNEL);
 
         INSTANCE = this;
@@ -53,16 +52,16 @@ public class ModularPowersuitsAddons {
 
         AddonConfig.initItems();
         proxy.registerRenderers();
-    }
+}
 
-    @EventHandler
-    public void load(FMLInitializationEvent event) {
+@EventHandler
+public void load(FMLInitializationEvent event) {
         packetHandler.register(new MPSAPacketHandler());
         AddonComponent.populate();
 
         if (!AddonUtils.isServerSide()) {
-            System.out.println("MPSA: Loading Localization");
-            ClientProxy.loadCurrentLanguage();
+                System.out.println("MPSA: Loading Localization");
+                ClientProxy.loadCurrentLanguage();
         }
         AddonConfig.loadOptions();
         proxy.registerHandlers();
@@ -70,23 +69,21 @@ public class ModularPowersuitsAddons {
         AddonRecipeManager.cheatyLeather();
 
         if (Loader.isModLoaded("appliedenergistics2")) {
-            TerminalHandler.registerHandler();
-            if (Loader.isModLoaded("extracells")) {
-              FluidTerminalHandler.registerHandler();
-            }
+                TerminalHandler.registerAEHandler();
+                if (Loader.isModLoaded("extracells")) {
+                        TerminalHandler.registerECHandler();
+                }
         }
+}
 
-    }
-
-
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+@EventHandler
+public void postInit(FMLPostInitializationEvent event) {
         AddonRecipeManager.addRecipes();
         AddonConfig.loadPowerModules();
 
         AddonConfig.getConfig().save();
 
 
-    }
+}
 
 }

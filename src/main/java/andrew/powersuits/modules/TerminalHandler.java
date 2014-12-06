@@ -11,8 +11,11 @@ import appeng.api.config.SortOrder;
 import appeng.api.config.ViewItems;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.util.IConfigManager;
+import extracells.api.ECApi;
+import extracells.api.IWirelessFluidTermHandler;
 import net.machinemuse.utils.ElectricItemUtils;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,9 +23,13 @@ import net.minecraft.nbt.NBTTagCompound;
 /**
  * Created by Eximius88 on 1/13/14.
  */
-public class TerminalHandler implements IWirelessTermHandler {
+@Optional.InterfaceList({
+                                @Optional.Interface(iface = "extracells.api.IWirelessFluidTermHandler", modid = "extracells", striprefs = true),
+                                @Optional.Interface(iface = "appeng.api.features.IWirelessTermHandler", modid = "appliedenergistics2", striprefs = true)
+                        })
+public class TerminalHandler implements IWirelessTermHandler, IWirelessFluidTermHandler {
 
-
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public boolean canHandle(ItemStack is) {
         if(is == null)
@@ -34,10 +41,10 @@ public boolean canHandle(ItemStack is) {
         return false;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public boolean usePower(EntityPlayer entityPlayer, double v, ItemStack itemStack) {
         boolean ret = false;
-        System.out.println("MPSA: Attempting to extract power for AE Terminal: " + String.valueOf(v * AddonConfig.appengMultiplier));
         if (( v * AddonConfig.appengMultiplier ) < ( ElectricItemUtils.getPlayerEnergy( entityPlayer ) * AddonConfig.appengMultiplier ))
         {
                 ElectricItemUtils.drainPlayerEnergy(entityPlayer, ( v * AddonConfig.appengMultiplier ) );
@@ -47,11 +54,13 @@ public boolean usePower(EntityPlayer entityPlayer, double v, ItemStack itemStack
         return ret;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public boolean hasPower(EntityPlayer entityPlayer, double v, ItemStack itemStack) {
         return (( v * AddonConfig.appengMultiplier ) < ( ElectricItemUtils.getPlayerEnergy(entityPlayer) * AddonConfig.appengMultiplier ));
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public IConfigManager getConfigManager(ItemStack itemStack) {
         IConfigManager config = new WirelessConfig(itemStack);
@@ -63,6 +72,7 @@ public IConfigManager getConfigManager(ItemStack itemStack) {
         return config;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public String getEncryptionKey(ItemStack item) {
         {
@@ -77,6 +87,7 @@ public String getEncryptionKey(ItemStack item) {
         }
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public void setEncryptionKey(ItemStack item, String encKey, String name) {
         {
@@ -90,13 +101,34 @@ public void setEncryptionKey(ItemStack item, String encKey, String name) {
         }
 }
 
-public static void registerHandler() {
+@Optional.Method(modid = "extracells")
+@Override
+public boolean isItemNormalWirelessTermToo(ItemStack is) {
+        return true;
+}
+
+@Optional.Method(modid = "appliedenergistics2")
+public static void registerAEHandler(){
+  AEApi.instance().registries().wireless().registerWirelessHandler(new TerminalHandler());
+}
+
+@Optional.Method(modid = "extracells")
+public static void registerECHandler(){
+  ECApi.instance().registryWirelessFluidTermHandler(new TerminalHandler());
+}
+
+/*public static void registerHandler() {
         if (Loader.isModLoaded("appliedenergistics2")) {
-                AEApi.instance().registries().wireless().registerWirelessHandler(new TerminalHandler());
+                TerminalHandler handler = new TerminalHandler();
+                AEApi.instance().registries().wireless().registerWirelessHandler(handler);
                 System.out.println("MPSA: Registering AE Terminal Handler :MPSA");
+                if (Loader.isModLoaded("extracells")) {
+                        ECApi.instance().registryWirelessFluidTermHandler(handler);
+                }
+
         }
 
-}
+}*/
 
 public static NBTTagCompound openNbtData(ItemStack item) {
         NBTTagCompound compound = item.getTagCompound();
@@ -106,6 +138,7 @@ public static NBTTagCompound openNbtData(ItemStack item) {
         return compound;
 }
 
+@Optional.Interface(iface = "appeng.api.util.IConfigManager", modid = "appliedenergistics2", striprefs = true)
 class WirelessConfig implements IConfigManager {
 
 HashMap<Enum, Enum> enums = new HashMap<Enum, Enum>();
@@ -116,6 +149,7 @@ public WirelessConfig(ItemStack itemStack) {
         stack = itemStack;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public Enum getSetting(Enum arg0) {
         if(enums.containsKey(arg0)) {
@@ -124,11 +158,13 @@ public Enum getSetting(Enum arg0) {
         return null;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public Set<Enum> getSettings() {
         return enums.keySet();
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public Enum putSetting(Enum arg0, Enum arg1) {
         enums.put(arg0, arg1);
@@ -136,6 +172,7 @@ public Enum putSetting(Enum arg0, Enum arg1) {
         return arg1;
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public void registerSetting(Enum arg0, Enum arg1) {
         if(!enums.containsKey(arg0)) {
@@ -144,6 +181,7 @@ public void registerSetting(Enum arg0, Enum arg1) {
 
 }
 
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public void readFromNBT(NBTTagCompound tagCompound)
 {
@@ -185,7 +223,7 @@ public void readFromNBT(NBTTagCompound tagCompound)
         }
 }
 
-
+@Optional.Method(modid = "appliedenergistics2")
 @Override
 public void writeToNBT(NBTTagCompound tagCompound)
 {
