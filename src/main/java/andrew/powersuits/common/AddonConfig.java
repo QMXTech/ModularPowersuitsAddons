@@ -33,6 +33,7 @@ public class AddonConfig{
     public static boolean useHUDStuff;
     public static boolean useDebugMode;
     public static boolean use24hClock;
+    public static double appengMultiplier;
 
 
     public static void init(Configuration config) {
@@ -75,18 +76,27 @@ public class AddonConfig{
         addModule(new AdvancedSolarGenerator(HEADONLY));
         addModule(new NitrogenCoolingSystem(TORSOONLY));
         addModule(new MechanicalAssistance(TORSOONLY));
+        //addModule(new CoalGenerator(TORSOONLY));
 
 
         if (Loader.isModLoaded("appliedenergistics2")) {
             addModule(new AppEngWirelessModule(TOOLONLY));
+            if (Loader.isModLoaded("extracells")) {
+              addModule(new AppEngWirelessFluidModule(TOOLONLY));
+            }
             System.out.println("MPSA: Loading AE Modules :MPSA");
-
         }
+	      if (Loader.isModLoaded("EnderIO") || Loader.isModLoaded("MineFactoryReloaded") || Loader.isModLoaded("Railcraft")) {
+	          addModule(new OmniProbeModule(TOOLONLY));
+	      }
 
+	      if (Loader.isModLoaded("CompactMachines")) {
+	          addModule(new PersonalShrinkingModule(TOOLONLY));
+	      }
 
-        if (ModCompatability.isThermalExpansionLoaded()) {
-            addModule(new TEMultimeterModule(TOOLONLY));
-        }
+        //if (Loader.isModLoaded("OpenComputers")) {
+	      //    addModule(new OCTerminalModule(TOOLONLY));
+	      //}
 
     }
 
@@ -108,6 +118,9 @@ public class AddonConfig{
         useHUDStuff = getConfig().get(category, "Use HUD for certain modules (Auto Feeder, Compass, Clock, etc.", true).getBoolean(true);
         useDebugMode = getConfig().get(category, "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
         use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
+        use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
+        if (Loader.isModLoaded("appliedenergistics2"))
+            appengMultiplier = getConfig().get(category, "Energy per AE", 5.0).getDouble(5.0);
     }
 
 

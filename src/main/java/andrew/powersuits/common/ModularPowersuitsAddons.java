@@ -3,8 +3,8 @@ package andrew.powersuits.common;
 
 import andrew.powersuits.client.ClientProxy;
 import andrew.powersuits.modules.TerminalHandler;
+import andrew.powersuits.modules.FluidTerminalHandler;
 import andrew.powersuits.network.MPSAPacketHandler;
-//import appeng.api.Util;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -71,6 +71,9 @@ public class ModularPowersuitsAddons {
 
         if (Loader.isModLoaded("appliedenergistics2")) {
             TerminalHandler.registerHandler();
+            if (Loader.isModLoaded("extracells")) {
+              FluidTerminalHandler.registerHandler();
+            }
         }
 
     }

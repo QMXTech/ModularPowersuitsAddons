@@ -34,3 +34,5 @@ module.bucket.name = Bucket
 module.advSolarGenerator.name = High Efficiency Solar Generator
 module.nitrogenCoolingSystem.name = Liquid Nitrogen Cooling System
 module.mechAssistance.name = Mechanical Assistance
+module.cmPSD.name = Personal Shrinking Device
+module.omniProbe.name = Prototype OmniProbe
