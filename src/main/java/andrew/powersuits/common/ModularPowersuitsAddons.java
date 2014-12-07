@@ -68,12 +68,7 @@ public void load(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
         AddonRecipeManager.cheatyLeather();
 
-        if (Loader.isModLoaded("appliedenergistics2")) {
-                TerminalHandler.registerAEHandler();
-                if (Loader.isModLoaded("extracells")) {
-                        TerminalHandler.registerECHandler();
-                }
-        }
+        TerminalHandler.registerHandler();
 }
 
 @EventHandler

@@ -108,27 +108,27 @@ public boolean isItemNormalWirelessTermToo(ItemStack is) {
 }
 
 @Optional.Method(modid = "appliedenergistics2")
-public static void registerAEHandler(){
-  AEApi.instance().registries().wireless().registerWirelessHandler(new TerminalHandler());
+private static void registerAEHandler(TerminalHandler handler){
+  AEApi.instance().registries().wireless().registerWirelessHandler(handler);
 }
 
 @Optional.Method(modid = "extracells")
-public static void registerECHandler(){
-  ECApi.instance().registryWirelessFluidTermHandler(new TerminalHandler());
+private static void registerECHandler(TerminalHandler handler){
+  ECApi.instance().registryWirelessFluidTermHandler(handler);
 }
 
-/*public static void registerHandler() {
+public static void registerHandler() {
         if (Loader.isModLoaded("appliedenergistics2")) {
                 TerminalHandler handler = new TerminalHandler();
-                AEApi.instance().registries().wireless().registerWirelessHandler(handler);
+                registerAEHandler(handler);
                 System.out.println("MPSA: Registering AE Terminal Handler :MPSA");
                 if (Loader.isModLoaded("extracells")) {
-                        ECApi.instance().registryWirelessFluidTermHandler(handler);
+                        registerECHandler(handler);
                 }
 
         }
 
-}*/
+}
 
 public static NBTTagCompound openNbtData(ItemStack item) {
         NBTTagCompound compound = item.getTagCompound();
