@@ -28,7 +28,7 @@ public class AppEngWirelessModule extends PowerModuleBase implements IRightClick
     public AppEngWirelessModule(List<IModularItem> validItems) {
         super(validItems);
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
-        wirelessTerminal = AEApi.instance().items().itemWirelessTerminal.stack(1);
+        wirelessTerminal = AEApi.instance().items().ToolWirelessTerminal.stack(1);
         addInstallCost(wirelessTerminal);
 
     }
@@ -60,7 +60,7 @@ public class AppEngWirelessModule extends PowerModuleBase implements IRightClick
 
     @Override
     public void onRightClick(EntityPlayer player, World world, ItemStack item) {
-        AEApi.instance().registries().wireless().OpenWirelessTermainlGui(item, world, player);
+	AEApi.instance().registries().wireless().openWirelessTerminalGui(item, world, player);
     }
 
     @Override

@@ -9,6 +9,8 @@ import appeng.api.config.Settings;
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
 import appeng.api.config.ViewItems;
+import appeng.api.config.StorageFlter;
+import appeng.api.config.LevelEmitterMode;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.util.IConfigManager;
 import extracells.api.ECApi;
@@ -81,7 +83,7 @@ public String getEncryptionKey(ItemStack item) {
                 }
                 NBTTagCompound tag = openNbtData(item);
                 if (tag != null) {
-                        return tag.getString("encKey");
+                        return tag.getString("encryptionKey");
                 }
                 return null;
         }
@@ -96,7 +98,8 @@ public void setEncryptionKey(ItemStack item, String encKey, String name) {
                 }
                 NBTTagCompound tag = openNbtData(item);
                 if (tag != null) {
-                        tag.setString("encKey", encKey);
+                        tag.setString( "encryptionKey", encKey );
+			tag.setString( "name", name );
                 }
         }
 }
@@ -203,11 +206,11 @@ public void readFromNBT(NBTTagCompound tagCompound)
 
                                 // Provides an upgrade path for the rename of this value in the API between rv1 and rv2
                                 //TODO implement on rv2 update
-                                /*if( value.equals( "EXTACTABLE_ONLY" ) ){
+                                if( value.equals( "EXTACTABLE_ONLY" ) ){
                                    value = StorageFilter.EXTRACTABLE_ONLY.toString();
                                    } else if( value.equals( "STOREABLE_AMOUNT" ) ) {
                                    value = LevelEmitterMode.STORABLE_AMOUNT.toString();
-                                   }*/
+                                   }
 
                                 Enum oldValue = enums.get( key );
 
