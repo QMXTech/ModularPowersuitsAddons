@@ -59,7 +59,7 @@ dependencies {
 	
 	compile "mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10"
 	compile "net.industrial-craft:industrialcraft-2:2.2.643-experimental:api"
-	compile "appeng:appliedenergistics2:rv1-stable-1:dev"
+	compile "appeng:appliedenergistics2:rv2-beta-7:dev"
 	compile fileTree(dir: 'libs', include: '*.jar')
 
 }
