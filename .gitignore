@@ -6,6 +6,8 @@
 !/.gitattributes
 !/Changelog.txt
 !/README.md
+!/build.gradle
+!/project.properties
 /build
 /eclipse
 /libs
