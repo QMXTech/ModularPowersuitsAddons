@@ -20,7 +20,7 @@ repositories {
 		name = "ic2"
 		url = "http://maven.ic2.player.to/"
 	}
-	
+
 	 maven { // The repo from which to get waila
 		name "Mobius Repo"
 		url "http://mobiusstrip.eu/maven"
@@ -34,13 +34,31 @@ repositories {
 apply plugin: 'scala'
 apply plugin: 'forge'
 
-version = "1.7.10-908"
-group= "andrew.powersuits.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "powersuitaddons"
+// define the properties file
+ext.configFile = file "project.properties"
+
+configFile.withReader {
+  // read config.  it shall from now on be referenced as simply config or as project.config
+  def prop = new Properties()
+  prop.load(it)
+  project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = "${config.version}." + System.getenv("BUILD_NUMBER") ?: "1"
+group = "${config.group_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "${config.id}"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230"
-    assetDir = "eclipse/assets"
+    version = "${config.minecraft_version}-${config.forge_version}"
+    runDir = "run"
+
+    replaceIn "ModularPowersuitsAddons.java"
+    replace "@VERSION@", config.version
+    replace "@NAME@", config.name
+    replace "@DEPENDENCIES@", config.dependencies
+    replace "@ID@", config.id
+    replace "@CHANNEL@", config.channel
+    replace "@CONFIG_PATH@", config.config_path
 }
 
 dependencies {
@@ -48,7 +66,7 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -56,13 +74,32 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-	
+
 	compile "mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10"
-	compile "net.industrial-craft:industrialcraft-2:2.2.643-experimental:api"
-	compile "appeng:appliedenergistics2:rv1-stable-1:dev"
+	compile "net.industrial-craft:industrialcraft-2:2.2.658-experimental:dev"
+  compile 'com.mod-buildcraft:buildcraft:6.2.6:dev'
+  compile "com.typesafe:config:1.2.1"
 	compile fileTree(dir: 'libs', include: '*.jar')
 
 }
+
+new File(config.libs_dir).mkdirs()
+def getLibrary(filename) {
+  def f = new File(config.libs_dir + filename)
+  if (!f.exists()) {
+    new URL(config.apisource_url + filename).withInputStream{ i -> f.withOutputStream{ it << i }}
+  }
+  dependencies {
+    compile files(config.libs_dir + filename)
+  }
+}
+
+getLibrary("appliedenergistics2-rv2-beta-7-dev.jar")
+getLibrary("ExtraCells-deobf-1.7.10-2.2.25b45.jar")
+getLibrary("compactmachines-1.7.10-1.13.jar")
+getLibrary("EnderIO-1.7.10-2.2.2.285-dev.jar")
+getLibrary("Railcraft-API-9.4.0.0-Compiled.jar")
+getLibrary("MineFactoryReloaded-API-[1.7.10]2.8.0RC3-Compiled-591.jar")
 
 processResources
 {
@@ -73,11 +110,11 @@ processResources
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
