@@ -16,18 +16,25 @@ buildscript {
 }
 
 repositories {
+    maven {
+        name = "QMXTech"
+        url = "https://artifactory.qmxtech.com/artifactory/minecraft-release/"
+    }
 	maven {
 		name = "ic2"
 		url = "http://maven.ic2.player.to/"
 	}
-
-	 maven { // The repo from which to get waila
-		name "Mobius Repo"
-		url "http://mobiusstrip.eu/maven"
+    maven {
+  	    name = "Tterrag"
+  	    url = "http://maven.tterrag.com"
+    }
+	maven { // The repo from which to get waila
+		name = "Mobius Repo"
+		url = "http://mobiusstrip.eu/maven"
 	}
 	 maven { // the repo from which to get NEI and stuff
-		name 'CB Repo'
-		url "http://chickenbones.net/maven/"
+		name = "CB Repo"
+		url = "http://chickenbones.net/maven/"
 	}
 }
 
@@ -44,9 +51,9 @@ configFile.withReader {
   project.ext.config = new ConfigSlurper().parse prop
 }
 
-version = "${config.version}." + System.getenv("BUILD_NUMBER") ?: "1"
+version = System.getenv("BUILD_NAME") ?: "${config.mod_version}." + ( System.getenv("BUILD_NUMBER") ?: "null" )
 group = "${config.group_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "${config.id}"
+archivesBaseName = "ModularPowersuitsAddons"
 
 minecraft {
     version = "${config.minecraft_version}-${config.forge_version}"
@@ -74,11 +81,15 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
-	compile "mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10"
-	compile "net.industrial-craft:industrialcraft-2:2.2.658-experimental:dev"
-  compile 'com.mod-buildcraft:buildcraft:6.2.6:dev'
-  compile "com.typesafe:config:1.2.1"
+    
+    compile 'net.machinemuse.numina:Numina:0.4.0.5-QMX:dev'
+    compile 'net.machinemuse.powersuits:ModularPowersuits:0.11.0.5-QMX:dev'
+	compile 'mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10'
+	compile 'net.industrial-craft:industrialcraft-2:2.2.658-experimental:dev'
+	compile 'appeng:appliedenergistics2:rv2-beta-7:dev'
+	compile 'com.enderio:EnderIO:1.7.10-2.2.6.323:dev'
+    compile 'com.mod-buildcraft:buildcraft:6.2.6:dev'
+    compile 'com.typesafe:config:1.2.1'
 	compile fileTree(dir: 'libs', include: '*.jar')
 
 }
@@ -94,10 +105,8 @@ def getLibrary(filename) {
   }
 }
 
-getLibrary("appliedenergistics2-rv2-beta-7-dev.jar")
 getLibrary("ExtraCells-deobf-1.7.10-2.2.25b45.jar")
 getLibrary("compactmachines-1.7.10-1.13.jar")
-getLibrary("EnderIO-1.7.10-2.2.2.285-dev.jar")
 getLibrary("Railcraft-API-9.4.0.0-Compiled.jar")
 getLibrary("MineFactoryReloaded-API-[1.7.10]2.8.0RC3-Compiled-591.jar")
 
@@ -120,3 +129,4 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
