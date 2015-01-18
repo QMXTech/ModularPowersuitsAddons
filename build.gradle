@@ -20,22 +20,6 @@ repositories {
         name = "QMXTech"
         url = "https://artifactory.qmxtech.com/artifactory/minecraft-release/"
     }
-	maven {
-		name = "ic2"
-		url = "http://maven.ic2.player.to/"
-	}
-    maven {
-  	    name = "Tterrag"
-  	    url = "http://maven.tterrag.com"
-    }
-	maven { // The repo from which to get waila
-		name = "Mobius Repo"
-		url = "http://mobiusstrip.eu/maven"
-	}
-	 maven { // the repo from which to get NEI and stuff
-		name = "CB Repo"
-		url = "http://chickenbones.net/maven/"
-	}
 }
 
 apply plugin: 'scala'
@@ -53,7 +37,7 @@ configFile.withReader {
 
 version = System.getenv("BUILD_NAME") ?: "${config.mod_version}." + ( System.getenv("BUILD_NUMBER") ?: "null" )
 group = "${config.group_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "ModularPowersuitsAddons"
+archivesBaseName = "${config.archive_name}"
 
 minecraft {
     version = "${config.minecraft_version}-${config.forge_version}"
