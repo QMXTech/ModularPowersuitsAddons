@@ -38,8 +38,6 @@ public class AdvancedSolarGenerator extends PowerModuleBase implements IPlayerTi
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.solarPanel, 3));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 2));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.computerChip, 1));
-
-
     }
 
     @Override
@@ -64,7 +62,7 @@ public class AdvancedSolarGenerator extends PowerModuleBase implements IPlayerTi
 
     @Override
     public String getDescription() {
-        return "A solar generator with 3 times the power generation of the standard solar generator";
+        return  StatCollector.translateToLocal("module.advSolarGenerator.desc");
     }
 
     @Override

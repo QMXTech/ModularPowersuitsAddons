@@ -1,37 +1,122 @@
-Made by users: Andrew2448
+Made by users: Andrew2448, Korynkai
 Last edited on 6/25/13 8:51PM EST
 
-item.powerArmorComponent.componentSolarPanel.name = Solar Panel
-item.powerArmorComponent.componentMagnet.name = Magnet
-item.powerArmorComponent.componentComputerChip.name = Computer Chip
-item.powerArmorComponent.componentLiquidNitrogen.name = Liquid Nitrogen Bucket
-item.powerArmorComponent.componentRubberHose.name = Insulated Rubber Hose
-item.powerArmorComponent.componentRawCarbon.name = Raw Carbon
+item.powerArmorComponent.componentSolarPanel.name=Solar Panel
+item.powerArmorComponent.componentSolarPanel.desc=A light sensitive device that will generate electricity from the sun.
 
-module.portableCraftingTable.name = In-Place Assembler
-module.kineticGenerator.name = Kinetic Generator
-module.solarGenerator.name = Solar Generator
-module.thermalGenerator.name = Thermal Generator
-module.autoFeeder.name = Auto-Feeder
-module.magnet.name = Magnet
-module.oreScanner.name = Ore Scanner
-module.leafBlower.name = Leaf Blower
-module.mobRepulsor.name = Mob Repulsor
-module.flintAndSteel.name = Flint and Steel
-module.clock.name = Clock
-module.compass.name = Compass
-module.lightningSummoner.name = Lightning Summoner
-module.waterTank.name = Water Tank
-module.euReader.name = EU Reader
-module.treetap.name = Treetap
-module.teMultimeter.name = TE Multimeter
-module.torchPlacer.name = Torch Placer
-module.appengWireless.name = AppEng Wireless Terminal
-module.appengECWirelessFluid.name = ExtraCells Wireless Fluid Terminal
-module.bucket.name = Bucket
-module.advSolarGenerator.name = High Efficiency Solar Generator
-module.nitrogenCoolingSystem.name = Liquid Nitrogen Cooling System
-module.mechAssistance.name = Mechanical Assistance
-module.cmPSD.name = Personal Shrinking Device
-module.omniProbe.name = Prototype OmniProbe
-module.creativeGenerator.name = Creative Generator
+item.powerArmorComponent.componentMagnet.name=Magnet
+item.powerArmorComponent.componentMagnet.desc=A metallic device that generates a magnetic field which pulls items towards the player.
+
+item.powerArmorComponent.componentComputerChip.name=Computer Chip
+item.powerArmorComponent.componentComputerChip.desc=An upgraded control circuit that contains a CPU which is capable of more advanced calculations.
+
+item.powerArmorComponent.componentLiquidNitrogen.name=Liquid Nitrogen Bucket
+item.powerArmorComponent.componentLiquidNitrogen.desc=A bucket of Liquid Nitrogen.
+
+item.powerArmorComponent.componentRubberHose.name=Insulated Rubber Hose
+item.powerArmorComponent.componentRubberHose.desc=A heavily insulated rubber hose capable of withstanding extreme heat or cold.
+
+module.common.efficiency=Efficiency
+
+module.common.activation.percent=Activation Percent
+
+module.common.energy.day=Daytime Energy Generation
+module.common.energy.night=Nighttime Energy Generation
+module.common.energy.generated=Energy Generated
+module.common.energy.generation=Energy Generation
+module.common.energy.consumption=Energy Consumption
+module.common.energy.perBlock=Energy Per Block
+module.common.energy.perFive=Energy Per 5 Blocks
+
+module.common.power.usage=Power Usage
+
+module.common.heat.day=Daytime Heat Generation
+module.common.heat.night=Nighttime Heat Generation
+module.common.heat.generation=Heat Generation
+module.common.heat.emission=Heat Emission
+module.common.heat.activationPercent=Heat Activation Percent
+
+module.common.tank.size=Tank Size
+
+module.common.radius.x=X Radius
+module.common.radius.y=Y Radius
+module.common.radius.z=Z Radius
+
+module.portableCraftingTable.name=In-Place Assembler
+module.portableCraftingTable.desc=A larger crafting grid, on the go.
+
+module.kineticGenerator.name=Kinetic Generator
+module.kineticGenerator.desc=Generate power with your movement.
+
+module.solarGenerator.name=Solar Generator
+module.solarGenerator.desc=Let the sun power your adventures.
+
+module.thermalGenerator.name=Thermal Generator
+module.thermalGenerator.desc=Generate power from extreme amounts of heat.
+
+module.autoFeeder.name=Auto-Feeder
+module.autoFeeder.desc=Whenever you're hungry, this module will grab the bottom-left-most food item from your inventory and feed it to you, storing the rest for later.
+module.autoFeeder.energy=Eating Energy Consumption
+module.autoFeeder.efficiency=Auto-Feeder Efficiency
+
+module.magnet.name=Magnet
+module.magnet.desc=Generates a magnetic field strong enough to attract items towards the player.         WARNING:                   This module drains power continuously. Turn it off when not needed. (Keybind menu: k)
+module.magnet.radius=Magnet Radius
+
+module.oreScanner.name=Ore Scanner
+module.oreScanner.desc=A way to see how valuable the land around you is.
+module.oreScanner.value=Total ore value
+module.oreScanner.most=Most valuable
+module.oreScanner.radius=Search radius
+module.eorScanner.energy=Energy used
+
+module.leafBlower.name=Leaf Blower
+module.leafBlower.desc=Create a torrent of air to knock plants out of the ground and leaves off of trees.
+module.leafBlower.radius.plant=Plant Radius
+module.leafBlower.radius.leaf=Leaf Radius
+module.leafBlower.radius.snow=Snow Radius
+
+module.mobRepulsor.name=Mob Repulsor
+module.mobRepulsor.desc=Pushes mobs away from you when activated, but constantly drains power. It is highly recommended that you set this module to a keybind because of the high energy draw.
+module.mobRepulsor.energy=Repulsor Energy Consumption
+
+module.flintAndSteel.name=Flint and Steel
+module.flintAndSteel.desc=A portable igniter that creates fire through the power of energy.
+module.flintAndSteel.energy=Ignition Energy Consumption
+
+module.clock.name=Clock
+module.clock.desc=A clock on the run that shows you the time, no matter where you are. Toggleable by keybinds.
+
+module.compass.name=Compass
+module.compass.desc=A compass on the run that shows you your direction, no matter where you are. Toggleable by keybinds.
+
+module.lightningSummoner.name=Lightning Summoner
+module.lightningSummoner.desc=Allows you to summon lightning for a large energy cost.
+
+module.waterTank.name=Water Tank
+module.waterTank.desc=Store water which can later be used to cool yourself in emergency situations.
+
+module.appengWireless.name=AppEng Wireless Terminal
+module.appengWireless.desc=An Applied Energistics wireless terminal integrated into your power tool.
+
+module.appengECWirelessFluid.name=ExtraCells Wireless Fluid Terminal
+module.appengECWirelessFluid.desc=An Applied Energistics ExtraCells wireless fluid terminal integrated into your power tool.
+
+module.advSolarGenerator.name=High Efficiency Solar Generator
+module.advSolarGenerator.desc=A solar generator with 3 times the power generation of the standard solar generator.
+
+module.nitrogenCoolingSystem.name=Liquid Nitrogen Cooling System
+module.nitrogenCoolingSystem.desc=Cools down heat-producing modules even faster than the standard cooling system.
+
+module.mechAssistance.name=Mechanical Assistance
+module.mechAssistance.desc=Robotic assistance to reduce the effect of weight on the user.
+module.mechAssistance.assistance=Robotic Assistance
+
+module.cmPSD.name=Personal Shrinking Device
+module.cmPSD.desc=A Compact Machines Personal Shrinking Device integrated into your power tool.
+
+module.omniProbe.name=Prototype OmniProbe
+module.omniProbe.desc=A prototype multi-use probe integrated into your power tool.
+
+module.creativeGenerator.name=Creative Generator
+module.creativeGenerator.desc=Generate infinite amounts of power freely while in creative.

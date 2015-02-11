@@ -1,21 +1,104 @@
 package com.qmxtech.powersuitaddons.common;
 
-
-
-import cpw.mods.fml.common.event.FMLInterModComms;
-import cpw.mods.fml.common.registry.GameRegistry;
+// import cpw.mods.fml.common.event.FMLInterModComms;
+// import cpw.mods.fml.common.registry.GameRegistry;
+import net.machinemuse.numina.recipe.JSONRecipeList;
 import net.machinemuse.powersuits.common.ModCompatability;
-import net.machinemuse.powersuits.item.ItemComponent;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.oredict.ShapedOreRecipe;
+// import net.machinemuse.powersuits.item.ItemComponent;
+// import net.minecraft.init.Blocks;
+// import net.minecraft.init.Items;
+// import net.minecraft.item.ItemStack;
+// import net.minecraft.nbt.NBTTagCompound;
+// import net.minecraftforge.oredict.ShapedOreRecipe;
+import org.apache.commons.io.FileUtils;
+import java.io.*;
 
 
 public class AddonRecipeManager {
+    static private boolean isLoaded;
+    
+    static {
+    	isLoaded = false;
+    }
+    
+    public static void loadOrPutRecipesFromJar(String path) {
+    	if (!isLoaded) {
+    		try {
+                if (AddonConfig.vanillaRecipesEnabled()) {
+                    File vanilla = new File(path, "vanilla.recipes");
+                    if (!vanilla.isFile()) {
+                        FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/vanilla.recipes"), vanilla);
+                    }
+                    JSONRecipeList.loadRecipesFromFile(vanilla);
+                }
+                // Universal Electricity/Resonant Induction/Electrodynamics reintroduction postponed until Calclavia gets his act together....
+                // if ModCompatability.isBasicComponentsLoaded() {
+                //     if ModCompatability.UERecipesEnabled()
+                //         File ue = new File(path, "UniversalElectricity.recipes");
+                //         if (!ue.isFile()) {
+                //             FileUtils.copyURLToFile(getClass().getResource("/UniversalElectricity.recipes"), ue);
+                //         }
+                //         JSONRecipeList.loadRecipesFromFile(ue);
+                //     }
+                // }
+                // EnderIO support planned...
+                // if ModCompatability.isEnderIOLoaded() {
+                //     if ModCompatability.EnderIORecipesEnabled() {
+                //         File eio = new File(path, "EnderIO.recipes");
+                //         if (!eio.isFile()) {
+                //             FileUtils.copyURLToFile(getClass().getResource("/EnderIO.recipes"), eio);
+                //         }
+                //         JSONRecipeList.loadRecipesFromFile(eio);
+                //     }
+                // }
+                // Mekanism support planned...
+                // if ModCompatability.isMekanismLoaded() {
+                //     if ModCompatability.MekanismRecipesEnabled() {
+                //         File mk = new File(path, "Mekanism.recipes");
+                //         if (!mk.isFile()) {
+                //             FileUtils.copyURLToFile(getClass().getResource("/Mekanism.recipes"), mk);
+                //         }
+                //         JSONRecipeList.loadRecipesFromFile(mk);
+                //     }
+                // }
+                if (ModCompatability.isIndustrialCraftLoaded()) {
+    				if (AddonConfig.IC2RecipesEnabled()) {
+	        		    File ic2 = new File(path, "IndustrialCraft2.recipes");
+	            		if (!ic2.isFile()) {
+	                		FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/IndustrialCraft2.recipes"), ic2);
+	            		}
+	            		JSONRecipeList.loadRecipesFromFile(ic2);
+    				}
+	        		if (ModCompatability.isGregTechLoaded()) {
+	        		    if (AddonConfig.GregTechRecipesEnabled()) {
+		                    File gt = new File(path, "GregTech.recipes");
+		            		if (!gt.isFile()) {
+		                		FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/GregTech.recipes"), gt);
+		            		}
+		            		JSONRecipeList.loadRecipesFromFile(gt);
+	        		    }
+	        		}
+        		}
+                if (ModCompatability.isThermalExpansionLoaded()) {
+                    if (AddonConfig.ThermalExpansionRecipesEnabled()) {
+                        File te = new File(path, "ThermalExpansion.recipes");
+                        if (!te.isFile()) {
+                            FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/ThermalExpansion.recipes"), te);
+                        }
+                        JSONRecipeList.loadRecipesFromFile(te);
+                    }
+                }
+                AddonConfig.getConfig().save();
+                isLoaded = true;
+            } catch (IOException e) {
+            	MuseLogger.logError("Unable to access and/or generate recipes!");
+            	MuseLogger.logError("Please check your permissions for the following directory: " + path);
+            	e.printStackTrace();
+            }
+    	}
+    }
 
-    public static void cheatyLeather() {
+/*    public static void cheatyLeather() {
         if (AddonConfig.useCheatyLeatherRecipe && ModCompatability.isThermalExpansionLoaded()) {
 
             NBTTagCompound toSend = new NBTTagCompound();
@@ -55,17 +138,17 @@ public class AddonRecipeManager {
             //===========================================================================================================================
         }
 
-        if (ModCompatability.UERecipesEnabled() && ModCompatability.isBasicComponentsLoaded()) {
-            String basicCircuit = "basicCircuit";
-            String advancedCircuit = "advancedCircuit";
-            String eliteCircuit = "eliteCircuit";
+        // if (ModCompatability.UERecipesEnabled() && ModCompatability.isBasicComponentsLoaded()) {
+        //     String basicCircuit = "basicCircuit";
+        //     String advancedCircuit = "advancedCircuit";
+        //     String eliteCircuit = "eliteCircuit";
 
-            //===========================================================================================================================
-            GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.solarPanel, true, "GGG", "CLC", "SSS", 'G', glass, 'C', basicCircuit, 'L', lapisBlock, 'S', "plateSteel"));
-            GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.magnet, "ICI", "SSS", "ICI", 'I', ironIngot, 'C', advancedCircuit, 'S', ItemComponent.solenoid));
-            GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.computerChip, "CRC", "GDG", 'C', eliteCircuit, 'R', redstoneBlock, 'G', goldIngot, 'D', diamond));
-            //===========================================================================================================================
-        }
+        //     //===========================================================================================================================
+        //     GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.solarPanel, true, "GGG", "CLC", "SSS", 'G', glass, 'C', basicCircuit, 'L', lapisBlock, 'S', "plateSteel"));
+        //     GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.magnet, "ICI", "SSS", "ICI", 'I', ironIngot, 'C', advancedCircuit, 'S', ItemComponent.solenoid));
+        //     GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.computerChip, "CRC", "GDG", 'C', eliteCircuit, 'R', redstoneBlock, 'G', goldIngot, 'D', diamond));
+        //     //===========================================================================================================================
+        // }
 
         if (ModCompatability.IC2RecipesEnabled() && ModCompatability.isIndustrialCraftLoaded()) {
             circuit = ModCompatability.getIC2Item("electronicCircuit");
@@ -132,6 +215,6 @@ public class AddonRecipeManager {
         }
 
 
-    }
+    }*/
 
 }

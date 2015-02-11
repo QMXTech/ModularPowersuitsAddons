@@ -55,6 +55,6 @@ public class ClockModule extends PowerModuleBase implements IToggleableModule {
 
     @Override
     public String getDescription() {
-        return "A clock on the run that shows you the time, no matter where you are. Toggleable by keybinds.";
+        return StatCollector.translateToLocal("module.clock.desc");
     }
 }

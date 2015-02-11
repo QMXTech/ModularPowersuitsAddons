@@ -36,6 +36,7 @@ public class FlintAndSteelModule extends PowerModuleBase implements IRightClickM
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.servoMotor, 1));
         addInstallCost(fas);
         addBaseProperty(IGNITION_ENERGY_CONSUMPTION, 1000, "J");
+        addPropertyLocalString(IGNITION_ENERGY_CONSUMPTION, StatCollector.translateToLocal("module.flintAndSteel.energy"));
     }
 
     @Override
@@ -65,7 +66,7 @@ public class FlintAndSteelModule extends PowerModuleBase implements IRightClickM
 
     @Override
     public String getDescription() {
-        return "A portable igniter that creates fire through the power of energy.";
+        return StatCollector.translateToLocal("module.flintAndSteel.desc");
     }
 
     @Override

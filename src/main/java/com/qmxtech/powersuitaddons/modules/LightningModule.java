@@ -57,7 +57,7 @@ public class LightningModule extends PowerModuleBase implements IRightClickModul
 
     @Override
     public String getDescription() {
-        return "Allows you to summon lightning for a large energy cost.";
+        return StatCollector.translateToLocal("module.lightningSummoner.desc");
     }
 
     @Override

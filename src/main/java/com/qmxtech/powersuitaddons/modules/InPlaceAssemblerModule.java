@@ -49,7 +49,7 @@ public class InPlaceAssemblerModule extends PowerModuleBase implements IRightCli
 
     @Override
     public String getDescription() {
-        return "A larger crafting grid, on the go.";
+        return StatCollector.translateToLocal("module.portableCraftingTable.name");
     }
 
     @Override

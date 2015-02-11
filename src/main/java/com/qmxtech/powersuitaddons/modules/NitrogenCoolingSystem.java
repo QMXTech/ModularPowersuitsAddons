@@ -35,8 +35,6 @@ public class NitrogenCoolingSystem extends PowerModuleBase implements IPlayerTic
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.computerChip, 2));
         addTradeoffProperty("Power", COOLING_BONUS, 7, "%");
         addTradeoffProperty("Power", ENERGY, 16, "J/t");
-
-
     }
 
 
@@ -75,6 +73,6 @@ public class NitrogenCoolingSystem extends PowerModuleBase implements IPlayerTic
 
     @Override
     public String getDescription() {
-        return "Cools down heat-producing modules even faster than the standard cooling system.";
+        return StatCollector.translateToLocal("module.nitrogenCoolingSystem.desc");
     }
 }

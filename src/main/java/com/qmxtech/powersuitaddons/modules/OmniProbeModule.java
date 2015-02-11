@@ -98,7 +98,7 @@ public String getLocalizedName() {
 
 @Override
 public String getDescription() {
-        return "A prototype multi-use probe integrated into your power tool.";
+        return StatCollector.translateToLocal("module.omniProbe.desc");
 }
 
 @Override

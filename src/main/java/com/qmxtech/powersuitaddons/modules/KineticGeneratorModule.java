@@ -56,7 +56,7 @@ public class KineticGeneratorModule extends PowerModuleBase implements IPlayerTi
 
     @Override
     public String getDescription() {
-        return "Generate power with your movement.";
+        return StatCollector.translateToLocal("module.kineticGenerator.desc");
     }
 
     @Override

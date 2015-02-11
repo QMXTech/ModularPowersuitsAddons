@@ -52,7 +52,7 @@ public class SolarGeneratorModule extends PowerModuleBase implements IPlayerTick
 
     @Override
     public String getDescription() {
-        return "Let the sun power your adventures.";
+        return StatCollector.translateToLocal("module.solarGenerator.desc");
     }
 
     @Override

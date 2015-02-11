@@ -45,6 +45,9 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
         addIntTradeoffProperty(PLANT_RADIUS, PLANT_RADIUS, 8, "m", 1, 0);
         addIntTradeoffProperty(LEAF_RADIUS, LEAF_RADIUS, 8, "m", 1, 0);
         addIntTradeoffProperty(SNOW_RADIUS, SNOW_RADIUS, 5, "m", 1, 0);
+        addPropertyLocalString(PLANT_RADIUS, StatCollector.translateToLocal("module.leafBlower.radius.plant"));
+        addPropertyLocalString(LEAF_RADIUS, StatCollector.translateToLocal("module.leafBlower.radius.leaf"));
+        addPropertyLocalString(SNOW_RADIUS, StatCollector.translateToLocal("module.leafBlower.radius.snow"));
     }
 
     public PowerModuleBase addIntTradeoffProperty(String tradeoffName, String propertyName, double multiplier, String unit, int roundTo, int offset) {
@@ -69,7 +72,7 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
 
     @Override
     public String getDescription() {
-        return "Create a torrent of air to knock plants out of the ground and leaves off of trees.";
+        return  StatCollector.translateToLocal("module.leafBlower.desc");
     }
 
     @Override

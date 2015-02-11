@@ -28,7 +28,6 @@ import java.util.List;
 public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, IToggleableModule {
     public static final String MODULE_MAGNET = "Magnet";
     public static final String MAGNET_ENERGY_CONSUMPTION = "Energy Consumption";
-
     public static final String MAGNET_RADIUS = "Magnet Radius";
 
     public MagnetModule(List<IModularItem> validItems) {
@@ -39,6 +38,7 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
         addBaseProperty(MAGNET_ENERGY_CONSUMPTION, 200);
         addIntTradeoffProperty(MAGNET_RADIUS, MAGNET_RADIUS, 10, "m", 1, 0);
+        addPropertyLocalString(MAGNET_RADIUS, StatCollector.translateToLocal("module.magnet.radius"));
     }
 
     public PowerModuleBase addIntTradeoffProperty(String tradeoffName, String propertyName, double multiplier, String unit, int roundTo, int offset) {
@@ -68,7 +68,7 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
 
     @Override
     public String getDescription() {
-        return "Generates a magnetic field strong enough to attract items towards the player.         WARNING:                   This module drains power continuously. Turn it off when not needed. (Keybind menu: k)";
+        return StatCollector.translateToLocal("module.magnet.desc");
     }
 
 

@@ -30,9 +30,7 @@ public class CreativeGenerator extends PowerModuleBase implements IPlayerTickMod
         public CreativeGenerator(List<IModularItem> validItems) {
                 super(validItems);
                 addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 2));
-                addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.hvcapacitor, 1));
-                addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.fieldEmitter, 1));
-                addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.laserHologram, 1));
+                addInstallCost(nether_star);
         }
 
         @Override
@@ -57,7 +55,7 @@ public class CreativeGenerator extends PowerModuleBase implements IPlayerTickMod
 
         @Override
         public String getDescription() {
-                return "Generate infinite amounts of power freely while in creative.";
+                return StatCollector.translateToLocal("module.creativeGenerator.desc");
         }
 
         @Override

@@ -106,11 +106,42 @@ public class AddonConfig{
     }
 
     public static void setConfigFolderBase(File folder) {
-        configFolder = new File(folder.getAbsolutePath() + "/machinemuse/andrew");
+        configFolder = folder;
     }
 
     public static void initItems() {
     }
+    
+    public static boolean vanillaRecipesEnabled() {
+    //    boolean defaultval = ((!isBasicComponentsLoaded()) && (!isIndustrialCraftLoaded()) && (!isThermalExpansionLoaded()));
+        boolean defaultval = ((! ModCompatibility.isThermalExpansionLoaded()) && (! ModCompatibility.isIndustrialCraftLoaded()));
+        return getConfig().get(category, "Vanilla Recipes", defaultval).getBoolean(defaultval);
+    }
+    
+    public static boolean IC2RecipesEnabled() {
+        boolean defaultval = (ModCompatibility.isIndustrialCraftLoaded() && (! ModCompatibility.isGregTechLoaded()) && (! ModCompatibility.isThermalExpansionLoaded()));
+        return getConfig().get(category, "IndustrialCraft Recipes", defaultval).getBoolean(defaultval);
+    }
+    
+    public static boolean GregTechRecipesEnabled() {
+            boolean defaultval = ModCompatibility.isGregTechLoaded();
+            return getConfig().get(category, "Gregtech Recipes", defaultval).getBoolean(defaultval);
+    }
+    
+    public static boolean ThermalExpansionRecipesEnabled() {
+            boolean defaultval = (ModCompatibility.isThermalExpansionLoaded() && (! ModCompatibility.isGregTechLoaded()));
+            return getConfig().get(category, "Thermal Expansion Recipes", defaultval).getBoolean(defaultval);
+    }
+    
+    // public static boolean EnderIORecipesEnabled() {
+    //         boolean defaultval = ModCompatibility.isEnderIOLoaded();
+    //         return config.getConfig().get(category, "EnderIO Recipes", defaultval).getBoolean(defaultval);
+    // }
+    
+    // public static boolean MekanismRecipesEnabled() {
+    //         boolean defaultval = ModCompatibility.isMekanismLoaded();
+    //         return config.getConfig().get(category, "Mekanism Recipes", defaultval).getBoolean(defaultval);
+    // }
 
     public static void loadOptions() {
         useAdvancedOreScannerMessage = getConfig().get(category, "Use Detailed Ore Scanner Message", true).getBoolean(true);
@@ -118,7 +149,6 @@ public class AddonConfig{
         useCheatyLeatherRecipe = getConfig().get(category, "Use Cheaty Leather Recipe (Requires Thermal Expansion)", true).getBoolean(true);
         useHUDStuff = getConfig().get(category, "Use HUD for certain modules (Auto Feeder, Compass, Clock, etc.", true).getBoolean(true);
         useDebugMode = getConfig().get(category, "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
-        use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
         use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
         if (Loader.isModLoaded("appliedenergistics2"))
             appengMultiplier = getConfig().get(category, "Energy per AE", 5.0).getDouble(5.0);

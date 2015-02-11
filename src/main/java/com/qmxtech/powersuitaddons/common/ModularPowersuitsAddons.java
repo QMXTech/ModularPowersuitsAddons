@@ -17,13 +17,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ic2.core.init.Localization;
+import net.machinemuse.numina.recipe.JSONRecipeList;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 
 @Mod(modid = "@ID@", name = "@NAME@", version = "@VERSION@", dependencies = "@DEPENDENCIES@")
-
-
 public class ModularPowersuitsAddons {
 @SidedProxy(clientSide = "com.qmxtech.powersuitaddons.client.ClientProxy", serverSide = "com.qmxtech.powersuitaddons.common.CommonProxy")
 public static CommonProxy proxy;
@@ -31,7 +30,7 @@ public static CommonProxy proxy;
 @Instance("@ID@")
 public static ModularPowersuitsAddons INSTANCE;
 
-public final static String modid = "@ID@";
+public static final String modid = "@ID@";
 public static final String CHANNEL = "@CHANNEL@";
 public static FMLEventChannel packetHandler;
 
@@ -42,14 +41,10 @@ public static GuiHandler guiHandler = new GuiHandler();
 @EventHandler
 public void preInit(FMLPreInitializationEvent event) {
         packetHandler = NetworkRegistry.INSTANCE.newEventDrivenChannel(CHANNEL);
-
         INSTANCE = this;
-        File newConfig = new File(event.getModConfigurationDirectory() + "@CONFIG_PATH@");
+        File newConfig = new File(event.getModConfigurationDirectory() + "@CONFIG_PATH@/@DISPLAY_NAME@.cfg");
         AddonConfig.init(new Configuration(newConfig));
         AddonConfig.setConfigFolderBase(event.getModConfigurationDirectory());
-
-
-
         AddonConfig.initItems();
         proxy.registerRenderers();
 }
@@ -73,11 +68,17 @@ public void load(FMLInitializationEvent event) {
 
 @EventHandler
 public void postInit(FMLPostInitializationEvent event) {
-        AddonRecipeManager.addRecipes();
+        //AddonRecipeManager.addRecipes();
         AddonConfig.loadPowerModules();
-
         AddonConfig.getConfig().save();
 
+
+}
+
+@EventHandler
+public void onServerStart(FMLServerStartedEvent event) {
+		AddonRecipeManager.loadOrPutRecipesFromJar(event.getModConfigurationDirectory() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
+}
 
 }
 

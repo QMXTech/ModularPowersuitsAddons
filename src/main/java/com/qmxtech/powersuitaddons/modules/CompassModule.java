@@ -55,6 +55,6 @@ public class CompassModule extends PowerModuleBase implements IToggleableModule 
 
     @Override
     public String getDescription() {
-        return "A compass on the run that shows you your direction, no matter where you are. Toggleable by keybinds.";
+        return StatCollector.translateToLocal("module.compass.desc");
     }
 }

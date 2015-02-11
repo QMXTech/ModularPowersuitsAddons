@@ -58,7 +58,7 @@ public String getLocalizedName() {
 
 @Override
 public String getDescription() {
-        return "A Compact Machines Personal Shrinking Device integrated into your power tool.";
+        return StatCollector.translateToLocal("module.cmPSD.desc");
 }
 
 @Override

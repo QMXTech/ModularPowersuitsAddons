@@ -62,7 +62,7 @@ public class ThermalGeneratorModule extends PowerModuleBase implements IPlayerTi
 
     @Override
     public String getDescription() {
-        return "Generate power from extreme amounts of heat.";
+        return StatCollector.translateToLocal("module.thermalGenerator.desc");
     }
 
     @Override

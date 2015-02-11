@@ -32,7 +32,7 @@ public class MechanicalAssistance extends PowerModuleBase implements IPlayerTick
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.artificialMuscle, 4));
         addTradeoffProperty(ASSISTANCE, POWER_USAGE, 500, " Joules/Tick");
         addTradeoffProperty(ASSISTANCE, MuseCommonStrings.WEIGHT, -10000);
-
+        addPropertyLocalString(ASSISTANCE, StatCollector.translateToLocal("module.mechAssistance.assistance"));
     }
 
     @Override
@@ -57,7 +57,7 @@ public class MechanicalAssistance extends PowerModuleBase implements IPlayerTick
 
     @Override
     public String getDescription() {
-        return "Robotic assistance to reduce the effect of weight on the user";
+        return StatCollector.translateToLocal("module.mechAssistance.desc");
     }
 
     @Override

@@ -1,0 +1,41 @@
+[
+	{
+		"ingredients" : [
+			[ { "oredictName" : "glassReinforced" }, { "oredictName" : "glassReinforced" }, { "oredictName" : "glassReinforced" } ],
+			[ { "oredictName" : "plateAlloyIridium" }, { "oredictName" : "circuitMaster" }, { "oredictName" : "plateAlloyIridium" } ]
+		],
+		"result" : {
+			"oredictName" : "componentSolarPanel"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "oredictName" : "ingotTitanium" }, { "unlocalizedName" : "gt.blockcasings.15" }, { "oredictName" : "ingotTitanium" } ],
+			[ { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" } ],
+			[ { "oredictName" : "ingotTitanium" }, { "unlocalizedName" : "gt.blockcasings.15" }, { "oredictName" : "ingotTitanium" } ]
+		],
+		"result" : {
+			"oredictName" : "componentMagnet"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "oredictName" : "circuitAdvanced" }, { "oredictName" : "circuitData" }, { "oredictName" : "circuitAdvanced" } ],
+			[ { "oredictName" : "circuitData" }, { "unlocalizedName" : "ic2.itemScannerAdv" }, { "oredictName" : "circuitData" } ],
+			[ { "oredictName" : "circuitAdvanced" }, { "oredictName" : "circuitData" }, { "oredictName" : "circuitAdvanced" } ]
+		],
+		"result" : {
+			"oredictName" : "componentComputerChip"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "unlocalizedName" : "gt.metaitem.01.30702" }, { "unlocalizedName" : "gt.metaitem.01.30702" } ],
+			[ { "unlocalizedName" : "gt.metaitem.01.30012" }, { "unlocalizedName" : "gt.metaitem.01.30012" } ],
+			[ { "oredictName" : "bucketEmpty" } ]
+		],
+		"result" : {
+			"oredictName" : "componentLiquidNitrogen"
+		}
+	}
+]

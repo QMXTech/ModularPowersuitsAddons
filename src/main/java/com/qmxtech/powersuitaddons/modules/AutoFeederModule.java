@@ -33,6 +33,8 @@ public class AutoFeederModule extends PowerModuleBase implements IToggleableModu
         addTradeoffProperty("Efficiency", EATING_EFFICIENCY, 50);
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.servoMotor, 2));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
+        addPropertyLocalString(EATING_ENERGY_CONSUMPTION, StatCollector.translateToLocal("module.autoFeeder.energy"));
+        addPropertyLocalString(EATING_EFFICIENCY, StatCollector.translateToLocal("module.autoFeeder.efficiency"));
     }
 
     @Override
@@ -57,7 +59,7 @@ public class AutoFeederModule extends PowerModuleBase implements IToggleableModu
 
     @Override
     public String getDescription() {
-        return "Whenever you're hungry, this module will grab the bottom-left-most food item from your inventory and feed it to you, storing the rest for later.";
+        return StatCollector.translateToLocal("module.autoFeeder.desc");
     }
 
     @Override

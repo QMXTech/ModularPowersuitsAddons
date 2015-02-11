@@ -55,7 +55,7 @@ public class AppEngWirelessModule extends PowerModuleBase implements IRightClick
 
     @Override
     public String getDescription() {
-        return "An Applied Energistics wireless terminal integrated into your power tool.";
+        return StatCollector.translateToLocal("module.appengWireless.desc");
     }
 
     @Override

@@ -37,7 +37,7 @@ configFile.withReader {
 
 version = System.getenv("BUILD_NAME") ?: "${config.mod_version}." + ( System.getenv("BUILD_NUMBER") ?: "null" )
 group = "${config.group_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "${config.archive_name}"
+archivesBaseName = "${config.display_name}"
 
 minecraft {
     version = "${config.minecraft_version}-${config.forge_version}"
@@ -50,6 +50,7 @@ minecraft {
     replace "@ID@", config.id
     replace "@CHANNEL@", config.channel
     replace "@CONFIG_PATH@", config.config_path
+    replace "@DISPLAY_NAME@", config.display_name
 }
 
 dependencies {
@@ -66,11 +67,12 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     
-    compile 'net.machinemuse.numina:Numina:0.4.0.5-QMX:dev'
-    compile 'net.machinemuse.powersuits:ModularPowersuits:0.11.0.5-QMX:dev'
+    // Removed for pre-release builds
+    //compile 'net.machinemuse.numina:Numina:0.4.0.6-QMX:dev'
+    //compile 'net.machinemuse.powersuits:ModularPowersuits:0.11.0.6-QMX:dev'
 	compile 'mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10'
 	compile 'net.industrial-craft:industrialcraft-2:2.2.658-experimental:dev'
-	//compile 'appeng:appliedenergistics2:rv2-beta-7:dev' // Maven outage at dl.tsr.me
+	compile 'appeng:appliedenergistics2:rv2-beta-8:dev'
 	compile 'com.enderio:EnderIO:1.7.10-2.2.6.323:dev'
     compile 'com.mod-buildcraft:buildcraft:6.2.6:dev'
     compile 'com.typesafe:config:1.2.1'
@@ -93,7 +95,6 @@ getLibrary("ExtraCells-deobf-1.7.10-2.2.25b45.jar")
 getLibrary("compactmachines-1.7.10-1.13.jar")
 getLibrary("Railcraft-API-9.4.0.0-Compiled.jar")
 getLibrary("MineFactoryReloaded-API-[1.7.10]2.8.0RC3-Compiled-591.jar")
-getLibrary("appliedenergistics2-rv2-beta-7-dev.jar") // Maven outage at dl.tsr.me
 
 processResources
 {

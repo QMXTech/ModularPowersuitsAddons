@@ -39,6 +39,7 @@ public class MobRepulsorModule extends PowerModuleBase implements IPlayerTickMod
         addBaseProperty(MuseCommonStrings.WEIGHT, 2000);
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.magnet, 1));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
+        addPropertyLocalString(MOB_REPULSOR_ENERGY_CONSUMPTION, StatCollector.translateToLocal("module.mobRepulsor.energy"));
     }
 
     @Override
@@ -63,7 +64,7 @@ public class MobRepulsorModule extends PowerModuleBase implements IPlayerTickMod
 
     @Override
     public String getDescription() {
-        return "Pushes mobs away from you when activated, but constantly drains power. It is highly recommended that you set this module to a keybind because of the high energy draw.";
+        return StatCollector.translateToLocal("module.mobRepulsor.desc");
     }
 
     @Override
