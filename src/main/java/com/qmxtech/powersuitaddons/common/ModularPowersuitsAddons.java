@@ -39,12 +39,14 @@ public class ModularPowersuitsAddons {
     
     public static GuiHandler guiHandler = new GuiHandler();
     
+    public File configDir = null;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         packetHandler = NetworkRegistry.INSTANCE.newEventDrivenChannel(CHANNEL);
         INSTANCE = this;
-        File newConfig = new File(event.getModConfigurationDirectory() + "@CONFIG_PATH@/@DISPLAY_NAME@.cfg");
+        configDir = event.getModConfigurationDirectory();
+        File newConfig = new File(configDir, "@CONFIG_PATH@/@DISPLAY_NAME@.cfg");
         AddonConfig.init(new Configuration(newConfig));
         AddonConfig.setConfigFolderBase(event.getModConfigurationDirectory());
         AddonConfig.initItems();
@@ -77,7 +79,7 @@ public class ModularPowersuitsAddons {
     
     @EventHandler
     public void onServerStart(FMLServerStartedEvent event) {
-		AddonRecipeManager.loadOrPutRecipesFromJar(event.getModConfigurationDirectory() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
+		AddonRecipeManager.loadOrPutRecipesFromJar(configDir.getAbsolutePath() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
     }
 
 }
