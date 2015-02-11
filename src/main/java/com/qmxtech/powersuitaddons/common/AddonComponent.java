@@ -1,7 +1,7 @@
 package com.qmxtech.powersuitaddons.common;
 
 import net.machinemuse.powersuits.common.MPSItems;
-import net.machinemuse.powersuits.utils.MuseCommonStrings;
+import net.machinemuse.utils.MuseCommonStrings;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 

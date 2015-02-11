@@ -30,7 +30,7 @@ public class CreativeGenerator extends PowerModuleBase implements IPlayerTickMod
         public CreativeGenerator(List<IModularItem> validItems) {
                 super(validItems);
                 addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 2));
-                addInstallCost(nether_star);
+                addInstallCost(new ItemStack(Items.nether_star));
         }
 
         @Override

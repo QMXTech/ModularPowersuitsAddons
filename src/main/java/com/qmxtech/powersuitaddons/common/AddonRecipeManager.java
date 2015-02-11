@@ -46,7 +46,7 @@ public class AddonRecipeManager {
                 //     if ModCompatability.EnderIORecipesEnabled() {
                 //         File eio = new File(path, "EnderIO.recipes");
                 //         if (!eio.isFile()) {
-                //             FileUtils.copyURLToFile(getClass().getResource("/EnderIO.recipes"), eio);
+                //             FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/EnderIO.recipes"), eio);
                 //         }
                 //         JSONRecipeList.loadRecipesFromFile(eio);
                 //     }
@@ -56,7 +56,7 @@ public class AddonRecipeManager {
                 //     if ModCompatability.MekanismRecipesEnabled() {
                 //         File mk = new File(path, "Mekanism.recipes");
                 //         if (!mk.isFile()) {
-                //             FileUtils.copyURLToFile(getClass().getResource("/Mekanism.recipes"), mk);
+                //             FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/Mekanism.recipes"), mk);
                 //         }
                 //         JSONRecipeList.loadRecipesFromFile(mk);
                 //     }
@@ -65,7 +65,7 @@ public class AddonRecipeManager {
     				if (AddonConfig.IC2RecipesEnabled()) {
 	        		    File ic2 = new File(path, "IndustrialCraft2.recipes");
 	            		if (!ic2.isFile()) {
-	                		FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/IndustrialCraft2.recipes"), ic2);
+	                		FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/IndustrialCraft2.recipes"), ic2);
 	            		}
 	            		JSONRecipeList.loadRecipesFromFile(ic2);
     				}
@@ -73,7 +73,7 @@ public class AddonRecipeManager {
 	        		    if (AddonConfig.GregTechRecipesEnabled()) {
 		                    File gt = new File(path, "GregTech.recipes");
 		            		if (!gt.isFile()) {
-		                		FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/GregTech.recipes"), gt);
+		                		FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/GregTech.recipes"), gt);
 		            		}
 		            		JSONRecipeList.loadRecipesFromFile(gt);
 	        		    }
@@ -83,7 +83,7 @@ public class AddonRecipeManager {
                     if (AddonConfig.ThermalExpansionRecipesEnabled()) {
                         File te = new File(path, "ThermalExpansion.recipes");
                         if (!te.isFile()) {
-                            FileUtils.copyURLToFile(MPSRecipeManager.class.getResource("/ThermalExpansion.recipes"), te);
+                            FileUtils.copyURLToFile(AddonRecipeManager.class.getResource("/ThermalExpansion.recipes"), te);
                         }
                         JSONRecipeList.loadRecipesFromFile(te);
                     }
