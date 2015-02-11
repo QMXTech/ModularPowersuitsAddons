@@ -72,7 +72,7 @@ dependencies {
     //compile 'net.machinemuse.powersuits:ModularPowersuits:0.11.0.6-QMX:dev'
 	compile 'mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10'
 	compile 'net.industrial-craft:industrialcraft-2:2.2.658-experimental:dev'
-	compile 'appeng:appliedenergistics2:rv2-beta-8:dev'
+//	compile 'appeng:appliedenergistics2:rv2-beta-8:dev'
 	compile 'com.enderio:EnderIO:1.7.10-2.2.6.323:dev'
     compile 'com.mod-buildcraft:buildcraft:6.2.6:dev'
     compile 'com.typesafe:config:1.2.1'
