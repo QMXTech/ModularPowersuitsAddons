@@ -2,6 +2,7 @@ package com.qmxtech.powersuitaddons.common;
 
 // import cpw.mods.fml.common.event.FMLInterModComms;
 // import cpw.mods.fml.common.registry.GameRegistry;
+import net.machinemuse.numina.general.MuseLogger;
 import net.machinemuse.numina.recipe.JSONRecipeList;
 import net.machinemuse.powersuits.common.ModCompatability;
 // import net.machinemuse.powersuits.item.ItemComponent;

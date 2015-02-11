@@ -114,22 +114,22 @@ public class AddonConfig{
     
     public static boolean vanillaRecipesEnabled() {
     //    boolean defaultval = ((!isBasicComponentsLoaded()) && (!isIndustrialCraftLoaded()) && (!isThermalExpansionLoaded()));
-        boolean defaultval = ((! ModCompatibility.isThermalExpansionLoaded()) && (! ModCompatibility.isIndustrialCraftLoaded()));
+        boolean defaultval = ((! ModCompatability.isThermalExpansionLoaded()) && (! ModCompatability.isIndustrialCraftLoaded()));
         return getConfig().get(category, "Vanilla Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean IC2RecipesEnabled() {
-        boolean defaultval = (ModCompatibility.isIndustrialCraftLoaded() && (! ModCompatibility.isGregTechLoaded()) && (! ModCompatibility.isThermalExpansionLoaded()));
+        boolean defaultval = (ModCompatability.isIndustrialCraftLoaded() && (! ModCompatability.isGregTechLoaded()) && (! ModCompatability.isThermalExpansionLoaded()));
         return getConfig().get(category, "IndustrialCraft Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean GregTechRecipesEnabled() {
-            boolean defaultval = ModCompatibility.isGregTechLoaded();
+            boolean defaultval = ModCompatability.isGregTechLoaded();
             return getConfig().get(category, "Gregtech Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean ThermalExpansionRecipesEnabled() {
-            boolean defaultval = (ModCompatibility.isThermalExpansionLoaded() && (! ModCompatibility.isGregTechLoaded()));
+            boolean defaultval = (ModCompatability.isThermalExpansionLoaded() && (! ModCompatability.isGregTechLoaded()));
             return getConfig().get(category, "Thermal Expansion Recipes", defaultval).getBoolean(defaultval);
     }
     
