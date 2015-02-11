@@ -91,11 +91,11 @@ def getLibrary(filename) {
   }
 }
 
-getLibrary("ExtraCells-deobf-1.7.10-2.2.25b45.jar")
+getLibrary("ExtraCells-deobf-1.7.10-2.2.53b82.jar")
 getLibrary("compactmachines-1.7.10-1.13.jar")
 getLibrary("Railcraft-API-9.4.0.0-Compiled.jar")
 getLibrary("MineFactoryReloaded-API-[1.7.10]2.8.0RC3-Compiled-591.jar")
-getLibrary("appliedenergistics2-rv2-beta-8.jar")
+getLibrary("appliedenergistics2-rv2-beta-8-dev.jar")
 
 processResources
 {
