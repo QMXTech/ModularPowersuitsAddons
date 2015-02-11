@@ -24,22 +24,23 @@ import java.io.File;
 
 @Mod(modid = "@ID@", name = "@NAME@", version = "@VERSION@", dependencies = "@DEPENDENCIES@")
 public class ModularPowersuitsAddons {
-@SidedProxy(clientSide = "com.qmxtech.powersuitaddons.client.ClientProxy", serverSide = "com.qmxtech.powersuitaddons.common.CommonProxy")
-public static CommonProxy proxy;
-
-@Instance("@ID@")
-public static ModularPowersuitsAddons INSTANCE;
-
-public static final String modid = "@ID@";
-public static final String CHANNEL = "@CHANNEL@";
-public static FMLEventChannel packetHandler;
-
-
-public static GuiHandler guiHandler = new GuiHandler();
-
-
-@EventHandler
-public void preInit(FMLPreInitializationEvent event) {
+    
+    @SidedProxy(clientSide = "com.qmxtech.powersuitaddons.client.ClientProxy", serverSide = "com.qmxtech.powersuitaddons.common.CommonProxy")
+    public static CommonProxy proxy;
+    
+    @Instance("@ID@")
+    public static ModularPowersuitsAddons INSTANCE;
+    
+    public static final String modid = "@ID@";
+    public static final String CHANNEL = "@CHANNEL@";
+    public static FMLEventChannel packetHandler;
+    
+    
+    public static GuiHandler guiHandler = new GuiHandler();
+    
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
         packetHandler = NetworkRegistry.INSTANCE.newEventDrivenChannel(CHANNEL);
         INSTANCE = this;
         File newConfig = new File(event.getModConfigurationDirectory() + "@CONFIG_PATH@/@DISPLAY_NAME@.cfg");
@@ -47,16 +48,16 @@ public void preInit(FMLPreInitializationEvent event) {
         AddonConfig.setConfigFolderBase(event.getModConfigurationDirectory());
         AddonConfig.initItems();
         proxy.registerRenderers();
-}
-
-@EventHandler
-public void load(FMLInitializationEvent event) {
+    }
+    
+    @EventHandler
+    public void load(FMLInitializationEvent event) {
         packetHandler.register(new MPSAPacketHandler());
         AddonComponent.populate();
 
         if (!AddonUtils.isServerSide()) {
-                System.out.println("MPSA: Loading Localization");
-                ClientProxy.loadCurrentLanguage();
+            System.out.println("MPSA: Loading Localization");
+            ClientProxy.loadCurrentLanguage();
         }
         AddonConfig.loadOptions();
         proxy.registerHandlers();
@@ -64,22 +65,18 @@ public void load(FMLInitializationEvent event) {
         AddonRecipeManager.cheatyLeather();
 
         TerminalHandler.registerHandler();
-}
-
-@EventHandler
-public void postInit(FMLPostInitializationEvent event) {
+    }
+    
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
         //AddonRecipeManager.addRecipes();
         AddonConfig.loadPowerModules();
         AddonConfig.getConfig().save();
-
-
-}
-
-@EventHandler
-public void onServerStart(FMLServerStartedEvent event) {
+    }
+    
+    @EventHandler
+    public void onServerStart(FMLServerStartedEvent event) {
 		AddonRecipeManager.loadOrPutRecipesFromJar(event.getModConfigurationDirectory() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
-}
-
-}
+    }
 
 }
