@@ -30,8 +30,8 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "blockIce" } ],
-			[ { "oredictName" : "dustCryotheum" } ],
+			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" } ],
+			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustCryotheum" } ],
 			[ { "oredictName" : "bucketEmpty" } ]
 		],
 		"result" : {
