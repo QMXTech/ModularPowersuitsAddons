@@ -30,6 +30,16 @@
 	},
 	{
 		"ingredients" : [
+			[ null, { "oredictName" : "ingotRubber" }, null ],
+			[ { "oredictName" : "ingotRubber" }, { "oredictName" : "dustBlaze" }, { "oredictName" : "ingotRubber" } ],
+			[ null, { "oredictName" : "ingotRubber" }, null ]
+		],
+		"result" : {
+			"oredictName" : "componentRubberHose"
+		}
+	},
+	{
+		"ingredients" : [
 			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" } ],
 			[ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
 			[ { "oredictName" : "bucketEmpty" } ]

@@ -18,9 +18,7 @@ public class AddonComponent {
             magnet = MPSItems.components().addComponent("componentMagnet", StatCollector.translateToLocal("item.powerArmorComponent.componentMagnet.desc"), "magnetb");
             computerChip = MPSItems.components().addComponent("componentComputerChip", StatCollector.translateToLocal("item.powerArmorComponent.componentComputerChip.desc"), "computerchip");
             liquidNitrogen = MPSItems.components().addComponent("componentLiquidNitrogen", StatCollector.translateToLocal("item.powerArmorComponent.componentLiquidNitrogen.desc"), "liquidnitrogen");
-            
-            // Not used (yet...)
-            //rubberHose = MPSItems.components().addComponent("componentRubberHose", StatCollector.translateToLocal("item.powerArmorComponent.componentRubberHose.desc"), "rubberhose");
+            rubberHose = MPSItems.components().addComponent("componentRubberHose", StatCollector.translateToLocal("item.powerArmorComponent.componentRubberHose.desc"), "rubberhose");
             
             // Initialize common module strings (these can't really go anywhere else...)
             MuseCommonStrings.addPropertyLocalString("Daytime Energy Generation", StatCollector.translateToLocal("module.common.energy.day"));

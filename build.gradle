@@ -44,7 +44,7 @@ minecraft {
     runDir = "run"
 
     replaceIn "ModularPowersuitsAddons.java"
-    replace "@VERSION@", config.version
+    replace "@VERSION@", project.version
     replace "@NAME@", config.name
     replace "@DEPENDENCIES@", config.dependencies
     replace "@ID@", config.id

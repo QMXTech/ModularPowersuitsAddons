@@ -30,6 +30,16 @@
 	},
 	{
 		"ingredients" : [
+			[ null, { "oredictName" : "stickRubber" }, null ],
+			[ { "oredictName" : "foilRubber" }, { "oredictName" : "dustBlaze" }, { "oredictName" : "foilRubber" } ],
+			[ null, { "oredictName" : "stickRubber" }, null ]
+		],
+		"result" : {
+			"oredictName" : "componentRubberHose"
+		}
+	},
+	{
+		"ingredients" : [
 			[ { "unlocalizedName" : "gt.metaitem.01.30702" }, { "unlocalizedName" : "gt.metaitem.01.30702" } ],
 			[ { "unlocalizedName" : "gt.metaitem.01.30012" }, { "unlocalizedName" : "gt.metaitem.01.30012" } ],
 			[ { "oredictName" : "bucketEmpty" } ]

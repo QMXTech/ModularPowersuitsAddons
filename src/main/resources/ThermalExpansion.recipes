@@ -30,7 +30,17 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" } ],
+			[ null, { "oredictName" : "bucketCoal" }, null ],
+			[ { "oredictName" : "dustCoal" }, { "oredictName" : "item.thermalexpansion.material.slagRich" }, { "oredictName" : "dustCoal" } ],
+			[ null, { "oredictName" : "dustPyrotheum" }, null ]
+		],
+		"result" : {
+			"oredictName" : "componentRubberHose"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "oredictName" : "blockIce" },, { "oredictName" : "blockIce" } ],
 			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustCryotheum" } ],
 			[ { "oredictName" : "bucketEmpty" } ]
 		],
