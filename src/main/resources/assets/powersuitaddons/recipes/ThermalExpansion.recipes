@@ -31,7 +31,7 @@
 	{
 		"ingredients" : [
 			[ null, { "oredictName" : "bucketCoal" }, null ],
-			[ { "oredictName" : "dustCoal" }, { "oredictName" : "item.thermalexpansion.material.slagRich.name" }, { "oredictName" : "dustCoal" } ],
+			[ { "oredictName" : "dustCoal" }, { "unlocalizedName" : "item.thermalexpansion.material.slagRich" }, { "oredictName" : "dustCoal" } ],
 			[ null, { "oredictName" : "dustPyrotheum" }, null ]
 		],
 		"result" : {
@@ -40,8 +40,8 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" } ],
-			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustCryotheum" } ],
+			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustBlizz" } ],
+			[ { "oredictName" : "bucketCryotheum" }, { "oredictName" : "dustBlizz" } ],
 			[ { "oredictName" : "bucketEmpty" } ]
 		],
 		"result" : {

@@ -39,13 +39,13 @@
 		}
 	},
 	{
-		"ingredients" : [
-			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" }, null ],
-			[ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" }, null ],
-			[ { "oredictName" : "bucketEmpty" }, null, null ]
-		],
-		"result" : {
-			"oredictName" : "componentLiquidNitrogen"
-		}
+        "ingredients" : [
+                [ { "unlocalizedName" : "tile.ice" }, { "unlocalizedName" : "tile.ice" } ],
+                [ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
+                [ { "oredictName" : "bucketEmpty" } ]
+        ],
+        "result" : {
+                "oredictName" : "componentLiquidNitrogen"
+        }
 	}
 ]
