@@ -40,7 +40,7 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" } ],
+			[ { "unlocalizedName" : "tile.ice" }, { "unlocalizedName" : "tile.ice" } ],
 			[ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
 			[ { "oredictName" : "bucketEmpty" } ]
 		],
