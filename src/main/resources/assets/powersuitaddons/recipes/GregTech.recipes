@@ -40,9 +40,9 @@
 	},
 	{
 		"ingredients" : [
-			[ { "unlocalizedName" : "gt.metaitem.01.30702" }, { "unlocalizedName" : "gt.metaitem.01.30702" }, null ],
-			[ { "unlocalizedName" : "gt.metaitem.01.30012" }, { "unlocalizedName" : "gt.metaitem.01.30012" }, null ],
-			[ { "oredictName" : "bucketEmpty" }, null, null ]
+			[ { "unlocalizedName" : "gt.metaitem.01.30702" }, { "unlocalizedName" : "gt.metaitem.01.30702" } ],
+			[ { "unlocalizedName" : "gt.metaitem.01.30012" }, { "unlocalizedName" : "gt.metaitem.01.30012" } ],
+			[ { "oredictName" : "bucketEmpty" } ]
 		],
 		"result" : {
 			"oredictName" : "componentLiquidNitrogen"
