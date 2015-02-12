@@ -11,6 +11,6 @@
     "logoFile": "",
     "screenshots": [ ],
     "parent": "",
-    "requiredMods": [ "Forge" ],
+    "requiredMods": [ "Forge", "Modular Powersuits" ],
     "dependencies": [ "Modular Powersuits" ]
 }]

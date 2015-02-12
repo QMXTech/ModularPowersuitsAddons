@@ -2,7 +2,7 @@
 	{
 		"ingredients" : [
 			[ { "oredictName" : "glass" }, { "oredictName" : "glass" }, { "oredictName" : "glass" } ],
-			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" }, { "oredictName" : "blockLapis" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" } ]
+			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum.name" }, { "oredictName" : "blockLapis" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum.name" } ]
 		],
 		"result" : {
 			"oredictName" : "componentSolarPanel"
@@ -10,9 +10,9 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "ingotIron" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold" }, { "oredictName" : "ingotIron" } ],
+			[ { "oredictName" : "ingotIron" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold.name" }, { "oredictName" : "ingotIron" } ],
 			[ { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" } ],
-			[ { "oredictName" : "ingotIron" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold" }, { "oredictName" : "ingotIron" } ]
+			[ { "oredictName" : "ingotIron" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold.name" }, { "oredictName" : "ingotIron" } ]
 		],
 		"result" : {
 			"oredictName" : "componentMagnet"
@@ -21,8 +21,8 @@
 	{
 		"ingredients" : [
 			[ null, { "oredictName" : "componentSolenoid" }, null ],
-			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold" }, { "unlocalizedName" : "item.thermalexpansion.tool.multimeter" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilSilver" } ],
-			[ null, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" }, null ]
+			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilGold.name" }, { "unlocalizedName" : "item.thermalexpansion.tool.multimeter.name" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilSilver.name" } ],
+			[ null, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum.name" }, null ]
 		],
 		"result" : {
 			"oredictName" : "componentComputerChip"
@@ -31,7 +31,7 @@
 	{
 		"ingredients" : [
 			[ null, { "oredictName" : "bucketCoal" }, null ],
-			[ { "oredictName" : "dustCoal" }, { "oredictName" : "item.thermalexpansion.material.slagRich" }, { "oredictName" : "dustCoal" } ],
+			[ { "oredictName" : "dustCoal" }, { "oredictName" : "item.thermalexpansion.material.slagRich.name" }, { "oredictName" : "dustCoal" } ],
 			[ null, { "oredictName" : "dustPyrotheum" }, null ]
 		],
 		"result" : {
@@ -40,9 +40,9 @@
 	},
 	{
 		"ingredients" : [
-			[ { "oredictName" : "blockIce" },, { "oredictName" : "blockIce" } ],
-			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustCryotheum" } ],
-			[ { "oredictName" : "bucketEmpty" } ]
+			[ { "oredictName" : "blockIce" }, { "oredictName" : "blockIce" }, null ],
+			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustCryotheum" }, null ],
+			[ { "oredictName" : "bucketEmpty" }, null, null ]
 		],
 		"result" : {
 			"oredictName" : "componentLiquidNitrogen"
