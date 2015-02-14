@@ -72,7 +72,6 @@ public class ModularPowersuitsAddons {
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        //AddonRecipeManager.addRecipes();
         AddonConfig.loadPowerModules();
         AddonConfig.getConfig().save();
     }
