@@ -115,43 +115,43 @@ public class AddonConfig{
     public static boolean vanillaRecipesEnabled() {
     //    boolean defaultval = ((!isBasicComponentsLoaded()) && (!isIndustrialCraftLoaded()) && (!isThermalExpansionLoaded()));
         boolean defaultval = ((! ModCompatability.isThermalExpansionLoaded()) && (! ModCompatability.isIndustrialCraftLoaded()));
-        return getConfig().get(category, "Vanilla Recipes", defaultval).getBoolean(defaultval);
+        return getConfig().get("Recipes", "Vanilla Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean IC2RecipesEnabled() {
         boolean defaultval = (ModCompatability.isIndustrialCraftLoaded() && (! ModCompatability.isGregTechLoaded()) && (! ModCompatability.isThermalExpansionLoaded()));
-        return getConfig().get(category, "IndustrialCraft Recipes", defaultval).getBoolean(defaultval);
+        return getConfig().get("Recipes", "IndustrialCraft Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean GregTechRecipesEnabled() {
             boolean defaultval = ModCompatability.isGregTechLoaded();
-            return getConfig().get(category, "Gregtech Recipes", defaultval).getBoolean(defaultval);
+            return getConfig().get("Recipes", "Gregtech Recipes", defaultval).getBoolean(defaultval);
     }
     
     public static boolean ThermalExpansionRecipesEnabled() {
             boolean defaultval = (ModCompatability.isThermalExpansionLoaded() && (! ModCompatability.isGregTechLoaded()));
-            return getConfig().get(category, "Thermal Expansion Recipes", defaultval).getBoolean(defaultval);
+            return getConfig().get("Recipes", "Thermal Expansion Recipes", defaultval).getBoolean(defaultval);
     }
     
     // public static boolean EnderIORecipesEnabled() {
     //         boolean defaultval = ModCompatibility.isEnderIOLoaded();
-    //         return config.getConfig().get(category, "EnderIO Recipes", defaultval).getBoolean(defaultval);
+    //         return config.getConfig().get("Recipes", "EnderIO Recipes", defaultval).getBoolean(defaultval);
     // }
     
     // public static boolean MekanismRecipesEnabled() {
     //         boolean defaultval = ModCompatibility.isMekanismLoaded();
-    //         return config.getConfig().get(category, "Mekanism Recipes", defaultval).getBoolean(defaultval);
+    //         return config.getConfig().get("Recipes", "Mekanism Recipes", defaultval).getBoolean(defaultval);
     // }
 
     public static void loadOptions() {
-        useAdvancedOreScannerMessage = getConfig().get(category, "Use Detailed Ore Scanner Message", true).getBoolean(true);
-        useOldAutoFeeder = getConfig().get(category, "Use Old Auto Feeder Method", false).getBoolean(false);
-        useCheatyLeatherRecipe = getConfig().get(category, "Use Cheaty Leather Recipe (Requires Thermal Expansion)", true).getBoolean(true);
-        useHUDStuff = getConfig().get(category, "Use HUD for certain modules (Auto Feeder, Compass, Clock, etc.", true).getBoolean(true);
-        useDebugMode = getConfig().get(category, "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
-        use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
+        useAdvancedOreScannerMessage = getConfig().get(Configuration.CATEGORY_GENERAL, "Use Detailed Ore Scanner Message", true).getBoolean(true);
+        useOldAutoFeeder = getConfig().get(Configuration.CATEGORY_GENERAL, "Use Old Auto Feeder Method", false).getBoolean(false);
+        useCheatyLeatherRecipe = getConfig().get("Extras", "Use Cheaty Leather Recipe (Requires Thermal Expansion)", true).getBoolean(true);
+        useHUDStuff = getConfig().get(Configuration.CATEGORY_GENERAL, "Use HUD for certain modules (Auto Feeder, Compass, Clock, etc.)", true).getBoolean(true);
+        useDebugMode = getConfig().get("Debug", "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
+        use24hClock = getConfig().get(Configuration.CATEGORY_GENERAL, "Use a 24h clock instead of 12h", false).getBoolean(false);
         if (Loader.isModLoaded("appliedenergistics2"))
-            appengMultiplier = getConfig().get(category, "Energy per AE", 5.0).getDouble(5.0);
+            appengMultiplier = getConfig().get("Energy", "Energy per AE", 5.0).getDouble(5.0);
     }
 
 
