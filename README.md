@@ -6,6 +6,8 @@ Please only report bugs on latest versions.
 
 >Current builds (including Modular Powersuits): https://github.com/QMXTech/MachineMusePowersuits/releases
 
+>Please file new bug reports at https://bugzilla.qmxtech.com/
+
 ModularPowersuits: http://www.machinemuse.net/download.php
 
 
