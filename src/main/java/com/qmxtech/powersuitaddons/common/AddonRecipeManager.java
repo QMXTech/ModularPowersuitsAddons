@@ -100,16 +100,18 @@ public class AddonRecipeManager {
     
     // Also seems like a good basis to base a furnace recipe handler on... Although as such it shouldn't be strictly TE, perhaps do something like this in MPS?
     public static void cheatyLeather() {
-        if (AddonConfig.useCheatyLeatherRecipe && ModCompatability.isThermalExpansionLoaded()) {
-
-            NBTTagCompound toSend = new NBTTagCompound();
-            toSend.setInteger("energy", 1350);
-            toSend.setTag("input", new NBTTagCompound());
-            toSend.setTag("output", new NBTTagCompound());
-
-            new ItemStack(Items.rotten_flesh).writeToNBT(toSend.getCompoundTag("input"));
-            new ItemStack(Items.leather).writeToNBT(toSend.getCompoundTag("output"));
-            FMLInterModComms.sendMessage("ThermalExpansion", "FurnaceRecipe", toSend);
+        if (ModCompatability.isThermalExpansionLoaded()) {
+            if (AddonConfig.CheatyLeatherEnabled()) {
+    
+                NBTTagCompound toSend = new NBTTagCompound();
+                toSend.setInteger("energy", 1350);
+                toSend.setTag("input", new NBTTagCompound());
+                toSend.setTag("output", new NBTTagCompound());
+    
+                new ItemStack(Items.rotten_flesh).writeToNBT(toSend.getCompoundTag("input"));
+                new ItemStack(Items.leather).writeToNBT(toSend.getCompoundTag("output"));
+                FMLInterModComms.sendMessage("ThermalExpansion", "FurnaceRecipe", toSend);
+            }
         }
     }
 /*

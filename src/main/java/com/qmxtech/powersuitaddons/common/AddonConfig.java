@@ -29,7 +29,6 @@ public class AddonConfig{
 
     public static boolean useAdvancedOreScannerMessage;
     public static boolean useOldAutoFeeder;
-    public static boolean useCheatyLeatherRecipe;
     public static boolean useHUDStuff;
     public static boolean useDebugMode;
     public static boolean use24hClock;
@@ -133,6 +132,10 @@ public class AddonConfig{
             return getConfig().get("Recipes", "Thermal Expansion Recipes", defaultval).getBoolean(defaultval);
     }
     
+    public static boolean CheatyLeatherEnabled() {
+            return getConfig().get("Recipes", "Use Cheaty Leather Recipe (Requires Thermal Expansion)", true).getBoolean(true);
+    }
+    
     // public static boolean EnderIORecipesEnabled() {
     //         boolean defaultval = ModCompatibility.isEnderIOLoaded();
     //         return config.getConfig().get("Recipes", "EnderIO Recipes", defaultval).getBoolean(defaultval);
@@ -146,7 +149,6 @@ public class AddonConfig{
     public static void loadOptions() {
         useAdvancedOreScannerMessage = getConfig().get(Configuration.CATEGORY_GENERAL, "Use Detailed Ore Scanner Message", true).getBoolean(true);
         useOldAutoFeeder = getConfig().get(Configuration.CATEGORY_GENERAL, "Use Old Auto Feeder Method", false).getBoolean(false);
-        useCheatyLeatherRecipe = getConfig().get("Recipes", "Use Cheaty Leather Recipe (Requires Thermal Expansion)", true).getBoolean(true);
         useHUDStuff = getConfig().get(Configuration.CATEGORY_GENERAL, "Use HUD for certain modules (Auto Feeder, Compass, Clock, etc.)", true).getBoolean(true);
         useDebugMode = getConfig().get("Debug", "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
         use24hClock = getConfig().get(Configuration.CATEGORY_GENERAL, "Use a 24h clock instead of 12h", false).getBoolean(false);

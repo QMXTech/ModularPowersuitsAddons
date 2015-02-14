@@ -65,7 +65,7 @@ public class ModularPowersuitsAddons {
         AddonConfig.loadOptions();
         proxy.registerHandlers();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
-        AddonRecipeManager.cheatyLeather();
+
 
         TerminalHandler.registerHandler();
     }
@@ -78,7 +78,8 @@ public class ModularPowersuitsAddons {
     
     @EventHandler
     public void onServerStart(FMLServerStartedEvent event) {
-		AddonRecipeManager.loadOrPutRecipesFromJar(configDir.getAbsolutePath() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
+				AddonRecipeManager.loadOrPutRecipesFromJar(configDir.getAbsolutePath() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
+        AddonRecipeManager.cheatyLeather();
     }
 
 }
