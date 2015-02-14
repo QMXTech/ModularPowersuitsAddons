@@ -65,7 +65,7 @@ public class ModularPowersuitsAddons {
         AddonConfig.loadOptions();
         proxy.registerHandlers();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
-        //AddonRecipeManager.cheatyLeather();
+        AddonRecipeManager.cheatyLeather();
 
         TerminalHandler.registerHandler();
     }
