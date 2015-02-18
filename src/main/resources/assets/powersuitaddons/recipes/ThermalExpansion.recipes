@@ -42,7 +42,7 @@
 		"ingredients" : [
 			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustBlizz" } ],
 			[ { "oredictName" : "bucketCryotheum" }, { "oredictName" : "dustBlizz" } ],
-			[ { "oredictName" : "bucketEmpty" } ]
+			[ { "oredictName" : "item.bucket" } ]
 		],
 		"result" : {
 			"oredictName" : "componentLiquidNitrogen"

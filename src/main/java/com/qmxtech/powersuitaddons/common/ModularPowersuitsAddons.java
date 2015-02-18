@@ -77,8 +77,8 @@ public class ModularPowersuitsAddons {
     }
     
     @EventHandler
-    public void onServerStart(FMLServerStartedEvent event) {
-				AddonRecipeManager.loadOrPutRecipesFromJar(configDir.getAbsolutePath() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
+    public void onServerStarting(FMLServerStartingEvent event) {
+        AddonRecipeManager.loadOrPutRecipesFromJar(configDir.getAbsolutePath() + "@CONFIG_PATH@/recipes/@DISPLAY_NAME@");
     }
 
 }
