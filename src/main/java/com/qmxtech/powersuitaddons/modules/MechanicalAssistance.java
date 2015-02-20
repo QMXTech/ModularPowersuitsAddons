@@ -30,7 +30,7 @@ public class MechanicalAssistance extends PowerModuleBase implements IPlayerTick
         super(validItems);
 
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.artificialMuscle, 4));
-        addTradeoffProperty(ASSISTANCE, POWER_USAGE, 500, " Joules/Tick");
+        addTradeoffProperty(ASSISTANCE, POWER_USAGE, 25, " Joules/Tick");
         addTradeoffProperty(ASSISTANCE, MuseCommonStrings.WEIGHT, -10000);
         addPropertyLocalString(ASSISTANCE, StatCollector.translateToLocal("module.mechAssistance.assistance"));
     }
