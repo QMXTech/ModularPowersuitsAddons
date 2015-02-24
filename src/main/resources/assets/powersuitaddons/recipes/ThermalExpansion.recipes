@@ -1,8 +1,8 @@
 [
 	{
 		"ingredients" : [
-			[ { "oredictName" : "glass" }, { "oredictName" : "glass" }, { "oredictName" : "glass" } ],
-			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" }, { "oredictName" : "blockLapis" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" } ]
+			[ { "unlocalizedName" : "tile.glass" }, { "unlocalizedName" : "tile.glass" }, { "unlocalizedName" : "tile.glass" } ],
+			[ { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" }, { "unlocalizedName" : "tile.blockLapis" }, { "unlocalizedName" : "item.thermalexpansion.material.powerCoilElectrum" } ]
 		],
 		"result" : {
 			"oredictName" : "componentSolarPanel"
@@ -42,7 +42,7 @@
 		"ingredients" : [
 			[ { "oredictName" : "dustCryotheum" }, { "oredictName" : "dustBlizz" } ],
 			[ { "oredictName" : "bucketCryotheum" }, { "oredictName" : "dustBlizz" } ],
-			[ { "oredictName" : "item.bucket" } ]
+			[ { "unlocalizedName" : "item.bucket" } ]
 		],
 		"result" : {
 			"oredictName" : "componentLiquidNitrogen"

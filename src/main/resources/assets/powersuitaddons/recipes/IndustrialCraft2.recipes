@@ -1,8 +1,8 @@
 [
 	{
 		"ingredients" : [
-			[ { "oredictName" : "dyeBlue" }, { "oredictName" : "glass" }, { "oredictName" : "dyeBlue" } ],
-			[ { "oredictName" : "glass" }, { "oredictName" : "dyeBlue" }, { "oredictName" : "glass" } ],
+			[ { "oredictName" : "dyeBlue" }, { "unlocalizedName" : "tile.glass" }, { "oredictName" : "dyeBlue" } ],
+			[ { "unlocalizedName" : "tile.glass" }, { "oredictName" : "dyeBlue" }, { "unlocalizedName" : "tile.glass" } ],
 			[ { "oredictName" : "circuitBasic" }, { "oredictName" : "craftingGenerator" }, { "oredictName" : "circuitBasic" } ]
 		],
 		"result" : {
@@ -41,8 +41,8 @@
 	{
 		"ingredients" : [
 			[ { "unlocalizedName" : "tile.ice" }, { "unlocalizedName" : "tile.ice" } ],
-            [ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
-            [ { "oredictName" : "bucketEmpty" } ]
+			[ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
+			[ { "unlocalizedName" : "item.bucket" } ]
 		],
 		"result" : {
 			"oredictName" : "componentLiquidNitrogen"

@@ -1,9 +1,9 @@
 [
 	{
 		"ingredients" : [
-			[ { "oredictName" : "paneGlass" }, { "oredictName" : "paneGlass" }, { "oredictName" : "paneGlass" } ],
-			[ { "oredictName" : "paneGlass" }, { "oredictName" : "blockLapis" }, { "oredictName" : "paneGlass" } ],
-			[ { "oredictName" : "paneGlass" }, { "oredictName" : "paneGlass" }, { "oredictName" : "paneGlass" } ]
+			[ { "unlocalizedName" : "tile.thinGlass" }, { "unlocalizedName" : "tile.thinGlass" }, { "unlocalizedName" : "tile.thinGlass" } ],
+			[ { "unlocalizedName" : "tile.thinGlass" }, { "unlocalizedName" : "tile.blockLapis" }, { "unlocalizedName" : "tile.thinGlass" } ],
+			[ { "unlocalizedName" : "tile.thinGlass" }, { "unlocalizedName" : "tile.thinGlass" }, { "unlocalizedName" : "tile.thinGlass" } ]
 		],
 		"result" : {
 			"oredictName" : "componentSolarPanel"
@@ -39,13 +39,13 @@
 		}
 	},
 	{
-        "ingredients" : [
-                [ { "unlocalizedName" : "tile.ice" }, { "unlocalizedName" : "tile.ice" } ],
-                [ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
-                [ { "unlocalizedName" : "item.bucket" } ]
-        ],
-        "result" : {
-                "oredictName" : "componentLiquidNitrogen"
-        }
+		"ingredients" : [
+			[ { "unlocalizedName" : "tile.ice" }, { "unlocalizedName" : "tile.ice" } ],
+			[ { "oredictName" : "dustBlaze" }, { "oredictName" : "gemDiamond" } ],
+			[ { "unlocalizedName" : "item.bucket" } ]
+		],
+		"result" : {
+			"oredictName" : "componentLiquidNitrogen"
+		}
 	}
 ]
