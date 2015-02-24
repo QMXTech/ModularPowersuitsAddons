@@ -1,12 +1,15 @@
-Andrew2448PowersuitAddons
+ModularPowersuitAddons
 =========================
 
-Andrew2448's addon mod for MachineMuse's Modular Powersuits.
+Addon mod for MachineMuse's Modular Powersuits originally written by Andrew2448.
 Please only report bugs on latest versions.
 
->Current builds: [![Build Status](https://jenkins.qmxtech.com/job/Open-Source.ModularPowersuitsAddons/badge/icon)](https://jenkins.qmxtech.com/job/Open-Source.ModularPowersuitsAddons/)
+>Current builds (including Modular Powersuits): https://github.com/QMXTech/MachineMusePowersuits/releases
+
+>Please file new bug reports at https://bugzilla.qmxtech.com/
 
 ModularPowersuits: http://www.machinemuse.net/download.php
+
 
 Come join us on irc! http://webchat.esper.net/
 Channel: #numina
