@@ -13,3 +13,6 @@
 /libs
 /.idea
 /.gradle
+
+# Use already pushed README.md
+/README.md
